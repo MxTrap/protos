@@ -1,0 +1,26 @@
+// proto/sso/sso.proto
+
+syntax = "proto3";
+
+package auth;
+
+option go_package = "sso.v1;ssov1";
+
+message RegisterRequest {
+  string username = 1; // Username of the user to register.
+  string email = 2; // Email of the user to register.
+  string password = 3; // Password of the user to register.
+}
+
+message RegisterResponse {
+  int64 userId = 1;
+}
+
+message LoginRequest {
+  string username = 1; // Username or email of the user to login
+  string password = 2; // Password of the user to login
+}
+
+message LoginResponse {
+  string token = 1;
+}
