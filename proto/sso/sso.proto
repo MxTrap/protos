@@ -6,6 +6,13 @@ package auth;
 
 option go_package = "sso.v1;ssov1";
 
+service Auth {
+  // Register registers a new user.
+  rpc Register (RegisterRequest) returns (RegisterResponse);
+  // Login logs in a user and returns an auth token.
+  rpc Login (LoginRequest) returns (LoginResponse);
+}
+
 message RegisterRequest {
   string username = 1; // Username of the user to register.
   string email = 2; // Email of the user to register.
