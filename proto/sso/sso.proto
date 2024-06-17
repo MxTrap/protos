@@ -23,7 +23,13 @@ service Auth {
     };
   };
 
-  rpc Refresh (RefreshRequest) returns (RefreshResponse) {}
+  rpc Refresh (RefreshRequest) returns (RefreshResponse) {
+    option (google.api.http) = {
+      post: "/v1/refresh";
+      body: "*";
+      response_body: "accessToken"
+    };
+  }
 
   rpc Validate (ValidateRequest) returns (ValidateResponse) {}
 }
@@ -51,6 +57,7 @@ message LoginResponse {
 
 message RefreshRequest {
   string refreshToken = 1;
+  int32 appId = 2;
 }
 
 message RefreshResponse {
