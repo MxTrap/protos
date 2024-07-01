@@ -66,14 +66,7 @@ message RefreshResponse {
 }
 
 message ValidateRequest {
-  string accessToken = 1;
+  string token = 1;
 }
 
-message ValidateResponse {
-  ValidationStatus status = 1;
-}
-
-enum ValidationStatus {
-  VALID = 0;
-  INVALID = 1;
-}
+message ValidateResponse {}
